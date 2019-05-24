@@ -7,3 +7,8 @@
 .warning {
     color: red;
 }
+
+#balance_price {
+    text-align: center;
+    font-size: 300%;
+}

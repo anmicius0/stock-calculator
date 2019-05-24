@@ -11,6 +11,7 @@
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
         <script src="index.js"></script>
         <link rel="stylesheet" type="text/css" href="index.css">
+        <!-- <link rel="stylesheet" type="text/css" href="debug.css"> -->
     </head>
 
     <body>
@@ -29,29 +30,40 @@
             </div>
         </nav>
 
+        <div class="jumbotron jumbotron-fluid">
+            <div class="container">
+                <h1 class="display-4">Stock Balance Price Calculator</h1>
+                <p class="lead">Give Us Your Buying Price And Get The Least Balance Price</p>
+            </div>
+        </div>
+
         <div class="container">
             <div class="row">
-                <form class="col-md-8 offset-md-2">
-                    <div class="row">
-                        <div class="form-group col-md-6">
-                            <label>Buying price</label>
-                            <input type="text" class="form-control" id="buy_price">
-                            <small id="buy_warning" class="warning" style="visibility:hidden"> Please Enter a Number</small>
+                <div class="col-md-8 center">
+                    <form onsubmit="return balance_price()">
+                        <div class="row">
+                            <div class="form-group col-md-6">
+                                <label>Buying price</label>
+                                <input type="text" class="form-control" id="buy_price">
+                                <small id="buy_warning" class="warning" style="visibility:hidden"> Please Enter a Number</small>
+                            </div>
+                            <div class="form-group col-md-6">
+                                <label>Buying fee rate</label>
+                                <input type="text" class="form-control" id="buy_rate" value="0.001425">
+                                <small id="buy_rate_warning" class="warning" style="visibility:hidden"> Please Enter a Number</small>
+                            </div>
+                            <div class="form-group col-md-6">
+                                <label>Selling fee rate</label>
+                                <input type="text" class="form-control" id="sell_rate" value="0.002425">
+                                <small id="sell_rate_warning" class="warning" style="visibility:hidden"> Please Enter a Number</small>
+                            </div>
+                            <div class="form-group col-md-6 center">
+                                <button id="submit" class="btn btn-primary col-md-12">Submit</button>
+                            </div>
                         </div>
-                        <div class="form-group col-md-6">
-                            <label>Buying fee rate</label>
-                            <input type="text" class="form-control" id="buy_rate" value="0.001425">
-                            <small id="buy_rate_warning" class="warning" style="visibility:hidden"> Please Enter a Number</small>
-                        </div>
-                        <div class="form-group col-md-6">
-                            <label>Selling fee rate</label>
-                            <input type="text" class="form-control" id="sell_rate" value="0.002425">
-                            <small id="sell_rate_warning" class="warning" style="visibility:hidden"> Please Enter a Number</small>
-                        </div>
-                    </div>
-                </form>
-                <button type="submit" id="submit" class="btn btn-primary col-md-12">Submit</button>
-                <div class="center col-md-8 offset-md-2">
+                    </form>
+                </div>
+                <div class="center col-md-4" style="height:50vh">
                     <div id="balance_price">
                     </div>
                 </div>
