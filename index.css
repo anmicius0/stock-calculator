@@ -8,7 +8,7 @@
     color: red;
 }
 
-#balance_price {
+#balance_price, #roi {
     text-align: center;
     font-size: 300%;
 }
