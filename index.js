@@ -58,8 +58,10 @@ function roi() {
 
     // if aok
     if (input) {
-        var roi = (((sell * (1 - sell_rate)) - (buy * (1 + buy_rate))) / (buy * (1 + buy_rate))).toFixed(4);
-        roi = roi * 100
+        var roi = Number((((sell * (1 - sell_rate)) - (buy * (1 + buy_rate))) / (buy * (1 + buy_rate))).toFixed(4));
+        
+        // have to do this bcs the error of js
+        roi = roi * 10000 / 100;
         
         // return ans
         document.querySelector('#roi').innerHTML = roi + '%';
